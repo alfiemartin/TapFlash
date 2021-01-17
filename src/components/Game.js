@@ -25,9 +25,9 @@ function Game({ dpAddress }) {
 
   const getNewPoints = ({ x, y }) => {
     let p = new PoissonDiskSampling({
-      shape: [x - 70, y - 200],
-      minDistance: window.innerWidth <= 1280 ? 80 : 120,
-      maxDistance: window.innerWidth <= 1280 ? 90 : 150,
+      shape: [x - 50, y - 200],
+      minDistance: window.innerWidth <= 1280 ? 50 : 120,
+      maxDistance: window.innerWidth <= 1280 ? 50 : 150,
       tries: 10,
     });
 
@@ -173,7 +173,7 @@ function Game({ dpAddress }) {
         {currentMap.map((point, index) => {
           return (
             <div
-              className={`circle-${index} circle w-12 h-12 xl:w-20 xl:h-20 absolute rounded-xl shadow-xl cursor-pointer outline-none transition transform  hover:scale-90`}
+              className={`circle-${index} circle w-10 h-10 xl:w-20 xl:h-20 absolute rounded-xl shadow-xl cursor-pointer outline-none transition transform  hover:scale-90`}
               key={index}
               style={{
                 left: point[0],

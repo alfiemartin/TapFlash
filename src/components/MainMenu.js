@@ -69,7 +69,9 @@ const MainMenu = (props) => {
                 Signed in as {userName}
               </h1>
             </div>
-            <h1 className="text-center text-5xl mb-16">Tap Flash</h1>
+            <h1 className="text-center text-5xl mb-16 font-bold text-gray-900">
+              Tap Flash
+            </h1>
             <div className="buttons grid gap-4 grid-cols-2 ">
               <button
                 className="bg-gray-700 text-gray-300 p-3 rounded shadow-xl mb-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl transition transform hover:translate-y-0.5"
