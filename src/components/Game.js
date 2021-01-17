@@ -25,9 +25,9 @@ function Game({ dpAddress }) {
 
   const getNewPoints = ({ x, y }) => {
     let p = new PoissonDiskSampling({
-      shape: [x - 50, y - 200],
+      shape: [x - 70, y - 200],
       minDistance: window.innerWidth <= 1280 ? 50 : 120,
-      maxDistance: window.innerWidth <= 1280 ? 50 : 150,
+      maxDistance: window.innerWidth <= 1280 ? 70 : 150,
       tries: 10,
     });
 
@@ -103,9 +103,7 @@ function Game({ dpAddress }) {
       currentColors[nextToPress + 1] =
         colorCodeList[Math.floor(Math.random() * colorCodeList.length)];
       updateTarget(nextToPress + 1);
-      flashColors(200).then(() => {
-        updateColorsArray(currentColors);
-      });
+      flashColors(200).then(() => updateColorsArray(currentColors));
     } else {
       setRunning(false);
       setTimeout(() => {
