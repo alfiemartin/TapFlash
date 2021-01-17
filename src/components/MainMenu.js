@@ -56,7 +56,7 @@ const MainMenu = (props) => {
           style={{ background: bgColor }}
           className="main-menu w-full h-full flex-col overflow-hidden flex justify-center absolute z-20 px-2"
         >
-          <div className="card w-full sm:w-3/5 lg:w-2/5 h-3/5 bg-pink-700 flex justify-start flex-col justify-around mx-auto z-20 items-center shadow-2xl rounded-2xl px-2 py-4 border-2">
+          <div className="card w-full sm:w-3/5 lg:w-2/5 h-4/5 md:h-3/5 bg-pink-700 flex justify-start flex-col justify-around mx-auto z-20 items-center shadow-2xl rounded-2xl px-2 py-4 border-2">
             <div className="signed-in border-2 border-gray-800 logged-in-section bg-gray-300 p-4 my-4 rounded shadow grid grid-cols-3 justify-items-center">
               <img
                 className="dp shadow-2xl flex-grow justify-self-start"
@@ -87,7 +87,10 @@ const MainMenu = (props) => {
               </button>
               <div
                 className="google-sign-in cursor-pointer col-span-2 bg-gray-100 shadow p-3 text-2xl flex items-center rounded shadow-xl w-full transition transform hover:translate-y-0.5"
-                onClick={() => signIn()}
+                onClick={() => (userName === "guest" ? signIn() : undefined)}
+                style={{
+                  filter: userName !== "guest" ? "grayscale(100)" : undefined,
+                }}
               >
                 <img
                   src={googleLogo}
