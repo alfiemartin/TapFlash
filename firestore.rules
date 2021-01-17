@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /Scores/{score} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null && isValid();
+      allow update: if request.auth != null && isValid() && newScoreBetter();
+    }
+  }
+  
+  function isValid(){
+  	return request.resource.data.uid == request.auth.uid;
+  }
+  
+  function newScoreBetter() {
+  	return request.resource.data.score <= resource.data.score;
+  }
+}
